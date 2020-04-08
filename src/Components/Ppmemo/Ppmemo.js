@@ -2,7 +2,8 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import Stepbar from "./Stepbar";
+import Stepbar from "../Stepbar";
+import Upload from "./Upload";
 
 function preventDefault(event) {
   event.preventDefault();
@@ -27,7 +28,7 @@ function getStepContent(stepIndex) {
 
 const useStyles = makeStyles();
 
-export default function Upload() {
+export default function Ppmemo() {
   const classes = useStyles();
 
   const [activeStep, setActiveStep] = React.useState(0);
@@ -49,6 +50,7 @@ export default function Upload() {
     <React.Fragment>
       <div className={classes.root}>
         <Stepbar activeStep={activeStep} steps={steps} />
+        <Upload />
         <div>
           {activeStep === steps.length ? (
             <div>

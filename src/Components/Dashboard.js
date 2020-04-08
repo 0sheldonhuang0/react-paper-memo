@@ -21,7 +21,7 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 import { mainListItems, secondaryListItems } from "./listItems";
 import Chart from "./Chart";
 import Deposits from "./Deposits";
-import Upload from "./Upload";
+import Ppmemo from "./Ppmemo/Ppmemo";
 import Orders from "./Orders";
 
 function Copyright() {
@@ -191,7 +191,7 @@ export default function Dashboard() {
             {/* 最近存款2 Recent Deposits */}
             <Grid item xs={12} md={8} lg={9}>
               <Paper className={classes.paper}>
-                <Upload />
+                <Ppmemo />
               </Paper>
             </Grid>
             {/* 最近存款 Recent Deposits */}
