@@ -114,7 +114,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
   },
   fixedHeight: {
-    height: 240,
+    height: 550,
   },
 }));
 
@@ -196,7 +196,7 @@ export default function Dashboard() {
             </Grid>
             {/* 最近存款 Recent Deposits */}
             <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
+              <Paper className={classes.paper}>
                 <Deposits />
               </Paper>
             </Grid>

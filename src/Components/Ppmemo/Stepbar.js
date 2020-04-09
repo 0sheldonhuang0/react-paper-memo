@@ -1,21 +1,11 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Title from "./Title";
+import Title from "../Title";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: "100%",
-  },
-  backButton: {
-    marginRight: theme.spacing(1),
-  },
-  instructions: {
-    marginTop: theme.spacing(1),
-    marginBottom: theme.spacing(1),
-  },
+import Grid from "@material-ui/core/Grid";
+const useStyles = makeStyles(() => ({
   depositContext: {
     flex: 1,
   },

@@ -2,8 +2,11 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import Stepbar from "../Stepbar";
+import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
+import Stepbar from "./Stepbar";
 import Upload from "./Upload";
+import Setup from "./Setup";
 
 function preventDefault(event) {
   event.preventDefault();
@@ -26,7 +29,29 @@ function getStepContent(stepIndex) {
   }
 }
 
-const useStyles = makeStyles();
+function getMainContent(stepIndex) {
+  switch (stepIndex) {
+    case 0:
+      return <Upload />;
+    case 1:
+      return <Setup />;
+    case 2:
+      return <Upload />;
+    default:
+      return "Unknown stepIndex";
+  }
+}
+
+const useStyles = makeStyles(() => ({
+  fixedHeight280: {
+    height: 280,
+    marginLeft: 20,
+    marginRight: 20,
+  },
+  fixedHeight100: {
+    height: 100,
+  },
+}));
 
 export default function Ppmemo() {
   const classes = useStyles();
@@ -50,24 +75,20 @@ export default function Ppmemo() {
     <React.Fragment>
       <div className={classes.root}>
         <Stepbar activeStep={activeStep} steps={steps} />
-        <Upload />
-        <div>
+        <Grid className={classes.fixedHeight280}>
+          {getMainContent(activeStep)}
+        </Grid>
+        <div className={classes.fixedHeight100}>
           {activeStep === steps.length ? (
             <div>
-              <Typography className={classes.instructions}>完成！</Typography>
+              <Typography>完成！</Typography>
               <Button onClick={handleReset}>重来</Button>
             </div>
           ) : (
             <div>
-              <Typography className={classes.instructions}>
-                {getStepContent(activeStep)}
-              </Typography>
+              <Typography>{getStepContent(activeStep)}</Typography>
               <div>
-                <Button
-                  disabled={activeStep === 0}
-                  onClick={handleBack}
-                  className={classes.backButton}
-                >
+                <Button disabled={activeStep === 0} onClick={handleBack}>
                   返回
                 </Button>
                 <Button
