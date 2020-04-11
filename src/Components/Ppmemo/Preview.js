@@ -6,13 +6,12 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import jsPDF from "jspdf";
+import Pdf2 from "../CreatePdf/Pdf2";
 
 const useStyles = makeStyles(() => ({}));
 
 function CreatPdf() {
-  var doc = new jsPDF();
-  doc.text("Hello world!", 10, 10);
-  doc.save("a4.pdf");
+  Pdf2();
 }
 
 export default function Preview() {

@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import { useDropzone } from "react-dropzone";
-import Title from "../Title";
+import { createStore } from "redux";
 
 function preventDefault(event) {
   event.preventDefault();
@@ -39,11 +39,11 @@ export default function Deposits() {
       reader.onload = () => {
         // Do whatever you want with the file contents
         const binaryStr = reader.result;
-        console.log(binaryStr);
+        console.log(binaryStr); //读取文件内容
       };
 
       reader.readAsText(file);
-      console.log(file.name);
+      console.log(file.name); //读取文件名
     });
   }, []);
 
