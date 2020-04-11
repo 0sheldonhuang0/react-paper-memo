@@ -41,10 +41,14 @@ export default function Deposits() {
         const binaryStr = reader.result;
         console.log(binaryStr);
       };
-      reader.readAsArrayBuffer(file);
+
+      reader.readAsText(file);
+      console.log(file.name);
     });
   }, []);
+
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+
   return (
     <React.Fragment>
       <div {...getRootProps()}>

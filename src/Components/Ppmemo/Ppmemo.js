@@ -7,6 +7,7 @@ import Grid from "@material-ui/core/Grid";
 import Stepbar from "./Stepbar";
 import Upload from "./Upload";
 import Setup from "./Setup";
+import Preview from "./Preview";
 
 function preventDefault(event) {
   event.preventDefault();
@@ -36,7 +37,7 @@ function getMainContent(stepIndex) {
     case 1:
       return <Setup />;
     case 2:
-      return <Upload />;
+      return <Preview />;
     default:
       return "Unknown stepIndex";
   }
