@@ -1,43 +1,27 @@
 import jsPDF from "jspdf";
+import { addfont } from "../../font/font";
 
 export default function Pdf2(uploadData) {
   var doc = new jsPDF();
+
+  addfont(doc);
+  doc.addFont("bolds", "b", "normal");
+  doc.setFont("b");
+
+  //设置每个格子的间距
+  var paperA4 = [297, 210];
+  var verticalSegment = paperA4[0] / 2;
+  var verticalSegmentText = paperA4[0] / 4;
+  var horizonSegmentText = paperA4[1] / 2;
+
+  //设置分割线（虚线）
+  doc.setLineDash([1]);
+  doc.line(5, verticalSegment, 205, verticalSegment);
+
+  //设置内容位置
   console.log(uploadData);
-  doc.text(uploadData, 20, 20);
-
-  doc.setFont("courier");
-  doc.setFontStyle("normal");
-  doc.text("This is courier normal.", 20, 30);
-
-  doc.setFont("times");
-  doc.setFontStyle("italic");
-  doc.text("This is times italic.", 20, 40);
-
-  doc.setFont("helvetica");
-  doc.setFontStyle("bold");
-  doc.text("This is helvetica bold.", 20, 50);
-
-  doc.setFont("courier");
-  doc.setFontStyle("bolditalic");
-  doc.text("This is courier bolditalic.", 20, 60);
-
-  doc.setFont("times");
-  doc.setFontStyle("normal");
-  doc.text("This is centred text.", 105, 80, null, null, "center");
-  doc.text(
-    "And a little bit more underneath it.",
-    105,
-    90,
-    null,
-    null,
-    "center"
-  );
-  doc.text("This is right aligned text", 200, 100, null, null, "right");
-  doc.text("And some more", 200, 110, null, null, "right");
-  doc.text("Back to left", 20, 120);
-
-  doc.text("10 degrees rotated", 20, 140, null, 10);
-  doc.text("-10 degrees rotated", 20, 160, null, -10);
+  doc.text(uploadData, horizonSegmentText, verticalSegmentText, "center");
+  doc.text(uploadData, horizonSegmentText, 3 * verticalSegmentText, "center");
 
   doc.save("a4.pdf");
 }
