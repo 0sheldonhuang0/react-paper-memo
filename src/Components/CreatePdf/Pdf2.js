@@ -1,9 +1,9 @@
 import jsPDF from "jspdf";
 
-export default function Pdf2() {
+export default function Pdf2(uploadData) {
   var doc = new jsPDF();
-
-  doc.text("This is the default font.", 20, 20);
+  console.log(uploadData);
+  doc.text(uploadData, 20, 20);
 
   doc.setFont("courier");
   doc.setFontStyle("normal");

@@ -2,12 +2,12 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Stepbar from "./Stepbar";
 import Upload from "./Upload";
 import Setup from "./Setup";
 import Preview from "./Preview";
+import { useSelector } from "react-redux"; //新版里导入useDispatch和useSeletor
 
 function preventDefault(event) {
   event.preventDefault();
@@ -73,6 +73,9 @@ export default function Ppmemo() {
     setActiveStep(0);
   };
 
+  const uploadData = useSelector((state) => state.content);
+  //获取reducer上的数据
+
   return (
     <React.Fragment>
       <div className={classes.root}>
@@ -84,7 +87,9 @@ export default function Ppmemo() {
           {activeStep === steps.length ? (
             <div>
               <Typography>完成！</Typography>
-              <Button onClick={handleReset}>重来</Button>
+              <Button onClick={handleReset} disabled>
+                重来
+              </Button>
             </div>
           ) : (
             <div>

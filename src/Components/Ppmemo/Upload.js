@@ -6,7 +6,6 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import { useDropzone } from "react-dropzone";
 import { useDispatch, useSelector } from "react-redux"; //新版里导入useDispatch和useSeletor
-import Dropzone from "react-dropzone";
 
 function preventDefault(event) {
   event.preventDefault();
@@ -56,7 +55,7 @@ export default function Upload(props) {
   const newUploadData = (e) => setUploadData(e);
   //把它当作一个函数，函数名为newUploadData，e为输入的变量，setUploadData(e)用来更改uploadData的值
 
-  // 用 useDispatch 產生 dispatch 方法
+  // 用 useDispatch 產生 dispatch 方法，dispatch用来给reducer送数据
   const dispatch = useDispatch();
   const storeUploadData = (uploadData) => {
     // 用法一樣
