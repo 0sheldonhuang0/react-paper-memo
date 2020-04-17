@@ -1,29 +1,26 @@
 const initialState = {
-  title: "请上传文件，目前暂时仅支持txt格式的文件",
-  content: "文件内容测试样本",
-  format: "Pdf16",
-  segment: "-",
+  content: "999",
+  format: ["Pdf16", "fontFz", "fontMiddle", "fontMiddle", true],
 };
 
 const reducer = (state = initialState, action) => {
   console.log(state.content);
+  console.log(state.format);
+  console.log(action);
+  console.log(state);
   switch (action.type) {
+    case "ADD_FORMAT": {
+      const newFormat = action.format;
+      return {
+        content: state.content,
+        format: newFormat,
+      };
+    }
     case "ADD_CONTENT": {
       const newContent = action.content;
       return {
         content: newContent,
-      };
-    }
-    case "ADD_FORMAT": {
-      const newFormat = action.format;
-      return {
-        format: newFormat,
-      };
-    }
-    case "ADD_SEGMENT": {
-      const newSegment = action.segment;
-      return {
-        segment: newSegment,
+        format: state.format,
       };
     }
     default:

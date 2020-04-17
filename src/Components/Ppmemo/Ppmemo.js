@@ -48,14 +48,8 @@ function getMainContent(stepIndex) {
 }
 
 const useStyles = makeStyles(() => ({
-  fixedHeight280: {
-    height: 280,
-    marginLeft: 20,
-    marginRight: 20,
-  },
-  fixedHeight100: {
-    height: 100,
-  },
+  fixedHeight280: {},
+  fixedHeight100: {},
 }));
 
 export default function Ppmemo() {

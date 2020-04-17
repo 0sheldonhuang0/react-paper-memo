@@ -28,11 +28,14 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+      <Link color="inherit" href="https://uniquelab.cn/pm">
+        Paper MEMO 纸记卡片
       </Link>{" "}
       {new Date().getFullYear()}
-      {"."}
+      {" By HXD.RED "}
+      <Link color="inherit" href="https://hxd.red">
+        BLOG
+      </Link>{" "}
     </Typography>
   );
 }
@@ -76,6 +79,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+    textAlign: "left",
   },
   drawerPaper: {
     position: "relative",
@@ -120,14 +124,13 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Dashboard() {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
   const handleDrawerOpen = () => {
     setOpen(true);
   };
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
     <div className={classes.root}>
@@ -156,18 +159,13 @@ export default function Dashboard() {
             noWrap
             className={classes.title}
           >
-            Dashboard
+            Paper MEMO
           </Typography>
-          <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
-              <NotificationsIcon />
-            </Badge>
-          </IconButton>
         </Toolbar>
       </AppBar>
 
       <Drawer
-        variant="permanent"
+        variant="temporary"
         classes={{
           paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose),
         }}
