@@ -37,14 +37,14 @@ const useStyles = makeStyles(() => ({
 
 export default function Setup() {
   const classes = useStyles();
-  const [format, setFormat] = React.useState([
-    "Pdf16",
-    "fontFz",
-    "fontMiddle",
-    "fontMiddle",
-    true,
-  ]);
-  //format是原始数据，为0；setFormat用于更新format
+  const [format, setFormat] = React.useState({
+    format: "Pdf16",
+    font: "fontFz",
+    fontSizeA: "fontMiddle",
+    fontSizeB: "fontMiddle",
+    cardNum: true,
+  });
+  //format是原始数据，为array；setFormat用于更新format
 
   // 用 useDispatch 產生 dispatch Value方法，dispatch用来给reducer送数据
   const dispatch = useDispatch();
@@ -57,10 +57,32 @@ export default function Setup() {
   };
 
   const handleChangeFormat = (event) => {
-    format[0] = event.target.value;
-    console.log(event.target.value);
-    console.log(format);
-    setFormat([...format]);
+    format.format = event.target.value;
+    setFormat({ ...format }); //就是要写成这样，不然无法更新
+    storeFormat(format);
+  };
+
+  const handleChangeFont = (event) => {
+    format.font = event.target.value;
+    setFormat({ ...format }); //就是要写成这样，不然无法更新
+    storeFormat(format);
+  };
+
+  const handleChangeFontSizeA = (event) => {
+    format.fontSizeA = event.target.value;
+    setFormat({ ...format }); //就是要写成这样，不然无法更新
+    storeFormat(format);
+  };
+
+  const handleChangeFontSizeB = (event) => {
+    format.fontSizeB = event.target.value;
+    setFormat({ ...format }); //就是要写成这样，不然无法更新
+    storeFormat(format);
+  };
+
+  const handleChangeCardNum = (event) => {
+    format.cardNum = event.target.checked;
+    setFormat({ ...format }); //就是要写成这样，不然无法更新
     storeFormat(format);
   };
 
@@ -75,7 +97,7 @@ export default function Setup() {
             <Select
               labelId="demo-simple-select-placeholder-label-label"
               id="demo-simple-select-placeholder-label"
-              value={format[0]}
+              value={format.format}
               onChange={handleChangeFormat}
               displayEmpty
               className={classes.selectEmpty}
@@ -94,8 +116,8 @@ export default function Setup() {
             <Select
               labelId="demo-simple-select-placeholder-label-label"
               id="demo-simple-select-placeholder-label"
-              value={format[1]}
-              onChange={handleChangeFormat}
+              value={format.font}
+              onChange={handleChangeFont}
               displayEmpty
               className={classes.selectEmpty}
             >
@@ -110,8 +132,8 @@ export default function Setup() {
             <Select
               labelId="demo-simple-select-placeholder-label-label"
               id="demo-simple-select-placeholder-label"
-              value={format[2]}
-              onChange={handleChangeFormat}
+              value={format.fontSizeA}
+              onChange={handleChangeFontSizeA}
               displayEmpty
               className={classes.selectEmpty}
             >
@@ -127,8 +149,8 @@ export default function Setup() {
             <Select
               labelId="demo-simple-select-placeholder-label-label"
               id="demo-simple-select-placeholder-label"
-              value={format[3]}
-              onChange={handleChangeFormat}
+              value={format.fontSizeB}
+              onChange={handleChangeFontSizeB}
               displayEmpty
               className={classes.selectEmpty}
             >
@@ -141,9 +163,9 @@ export default function Setup() {
             <FormControlLabel
               control={
                 <Switch
-                  checked={format[4]}
-                  onChange={handleChangeFormat}
-                  name="checkedA"
+                  checked={format.cardNum}
+                  onChange={handleChangeCardNum}
+                  name="cardNum"
                 />
               }
               label="是否显示卡片编号？"
