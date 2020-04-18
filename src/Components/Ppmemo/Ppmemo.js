@@ -6,7 +6,7 @@ import Grid from "@material-ui/core/Grid";
 import Stepbar from "./Stepbar";
 import Upload from "./Upload";
 import Setup from "./Setup";
-import { useSelector } from "react-redux"; //新版里导入useDispatch和useSeletor
+import { useDispatch, useSelector } from "react-redux"; //新版里导入useDispatch和useSeletor
 const Preview = React.lazy(() => import("./Preview")); //这个可以懒加载
 
 function preventDefault(event) {
@@ -57,7 +57,6 @@ export default function Ppmemo() {
   const classes = useStyles();
 
   const [activeStep, setActiveStep] = React.useState(0);
-
   const steps = getSteps();
 
   const handleNext = () => {
