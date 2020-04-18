@@ -1,5 +1,5 @@
 const initialState = {
-  content: "999",
+  content: "欢迎使用ppmemo-https://hxd.red",
   format: ["Pdf16", "fontFz", "fontMiddle", "fontMiddle", true],
 };
 

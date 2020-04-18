@@ -19,6 +19,7 @@ const useStyles = makeStyles(() => ({
     height: 200,
     borderStyle: "dashed",
     borderColor: "#CCCCCC",
+    margin: "0 0 30px 0",
   },
   text: {
     textAlign: "center",
@@ -30,8 +31,33 @@ const useStyles = makeStyles(() => ({
 export default function Upload(props) {
   const classes = useStyles();
 
-  const [uploadData, setUploadData] = React.useState(0);
+  const [Successed, setSuccessed] = React.useState("");
   //uploadData是原始数据，为0；setUploadData用于更新uploadData
+
+  const verifyFile = (uploadData) => {
+    //设置内容位置
+    console.log(uploadData);
+    let displayUploadData = uploadData.split("\n"); //将文件内容根据换行符隔开，["A-B","A-B","A-B","A-B"...]
+    console.log(displayUploadData);
+    if (displayUploadData == undefined) {
+      setSuccessed("❌文件不符合要求");
+    }
+
+    for (let i = 0; i < displayUploadData.length; i++) {
+      let displayUploadDataTemp = displayUploadData[i].split("-"); //暂时储存一张卡片正反面，["A","B"]
+      console.log(displayUploadDataTemp);
+      if (
+        displayUploadDataTemp[0] == undefined ||
+        displayUploadDataTemp[1] == undefined
+      ) {
+        setSuccessed("❌文件不符合要求");
+        break;
+      } else {
+        setSuccessed("✅ " + " 文件上传成功"); //使用下方的函数newUploadData
+        storeUploadData(uploadData);
+      }
+    }
+  };
 
   const onDrop = useCallback((acceptedFiles) => {
     // Do something with the files
@@ -45,15 +71,11 @@ export default function Upload(props) {
         const binaryStr = reader.result;
         console.log(binaryStr); //读取文件内容
         console.log(file.name); //读取文件名
-        newUploadData(binaryStr); //使用下方的函数newUploadData
-        storeUploadData(binaryStr);
+        verifyFile(binaryStr);
       };
       reader.readAsText(file);
     });
   }, []);
-
-  const newUploadData = (e) => setUploadData(e);
-  //把它当作一个函数，函数名为newUploadData，e为输入的变量，setUploadData(e)用来更改uploadData的值
 
   // 用 useDispatch 產生 dispatch 方法，dispatch用来给reducer送数据
   const dispatch = useDispatch();
@@ -65,7 +87,11 @@ export default function Upload(props) {
     });
   };
 
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+    accept: ".txt",
+    maxSize: "500000",
+  });
 
   return (
     <React.Fragment>
@@ -73,12 +99,12 @@ export default function Upload(props) {
         <Paper className={classes.root}>
           <input {...getInputProps()} />
           {isDragActive ? (
-            <p className={classes.text}>拖到这里来 ...</p>
+            <p className={classes.text}>😆 拖到这里来 ...</p>
           ) : (
             <p className={classes.text}>拖拽到此处 或 点击此处 上传文件</p>
           )}
+          <p>{Successed}</p>
         </Paper>
-        <ul>测试{uploadData}</ul>
       </div>
     </React.Fragment>
   );

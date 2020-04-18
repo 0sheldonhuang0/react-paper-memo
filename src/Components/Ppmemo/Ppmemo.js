@@ -24,7 +24,7 @@ function getStepContent(stepIndex) {
     case 1:
       return "调整纸张设置并生成卡片";
     case 2:
-      return "请点击下载(PDF格式：A4、每张纸16枚卡片、可打印)";
+      return "请点击下载";
     default:
       return "Unknown stepIndex";
   }
@@ -48,8 +48,9 @@ function getMainContent(stepIndex) {
 }
 
 const useStyles = makeStyles(() => ({
-  fixedHeight280: {},
-  fixedHeight100: {},
+  buttonArea: {
+    margin: "0 10px 10px 10px",
+  },
 }));
 
 export default function Ppmemo() {
@@ -91,15 +92,23 @@ export default function Ppmemo() {
             </div>
           ) : (
             <div>
-              <Typography>{getStepContent(activeStep)}</Typography>
-              <div>
-                <Button disabled={activeStep === 0} onClick={handleBack}>
+              <Typography variant="overline" className={classes.hintText}>
+                {getStepContent(activeStep)}
+              </Typography>
+              <div className={classes.buttonArea}>
+                <Button
+                  disabled={activeStep === 0}
+                  onClick={handleBack}
+                  variant="contained"
+                  className={classes.buttonArea}
+                >
                   返回
                 </Button>
                 <Button
                   variant="contained"
                   color="primary"
                   onClick={handleNext}
+                  className={classes.buttonArea}
                 >
                   {activeStep === steps.length - 1 ? "完成" : "下一步"}
                 </Button>
