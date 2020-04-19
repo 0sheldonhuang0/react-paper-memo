@@ -1,6 +1,7 @@
 const initialState = {
   content: "欢迎使用ppmemo-https://hxd.red",
   format: ["Pdf16", "fontFz", "fontMiddle", "fontMiddle", true],
+  successedData: false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -10,17 +11,24 @@ const reducer = (state = initialState, action) => {
   console.log(state);
   switch (action.type) {
     case "ADD_FORMAT": {
-      const newFormat = action.format;
+      const newTemp = action.format;
       return {
-        content: state.content,
-        format: newFormat,
+        ...state,
+        format: newTemp,
       };
     }
     case "ADD_CONTENT": {
-      const newContent = action.content;
+      const newTemp = action.content;
       return {
-        content: newContent,
-        format: state.format,
+        ...state,
+        content: newTemp,
+      };
+    }
+    case "ADD_UPLOADSUCCESS": {
+      const newTemp = action.successedData;
+      return {
+        ...state,
+        successedData: newTemp,
       };
     }
     default:

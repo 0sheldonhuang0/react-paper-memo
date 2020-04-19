@@ -51,10 +51,12 @@ export default function Upload(props) {
         displayUploadDataTemp[1] == undefined
       ) {
         setSuccessed("❌文件不符合要求");
+        storeSuccessedData(false);
         break;
       } else {
         setSuccessed("✅ " + " 文件上传成功"); //使用下方的函数newUploadData
         storeUploadData(uploadData);
+        storeSuccessedData(true);
       }
     }
   };
@@ -84,6 +86,12 @@ export default function Upload(props) {
     dispatch({
       type: "ADD_CONTENT",
       content: uploadData,
+    });
+  };
+  const storeSuccessedData = (uploadData) => {
+    dispatch({
+      type: "ADD_UPLOADSUCCESS",
+      successedData: uploadData,
     });
   };
 

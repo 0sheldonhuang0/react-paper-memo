@@ -68,6 +68,7 @@ export default function Ppmemo() {
   };
 
   const uploadData = useSelector((state) => state.content);
+  const successedData = useSelector((state) => state.successedData);
   //获取reducer上的数据
 
   return (
@@ -104,8 +105,10 @@ export default function Ppmemo() {
                   color="primary"
                   onClick={handleNext}
                   className={classes.buttonArea}
+                  disabled={activeStep === steps.length - 1}
+                  disabled={successedData === false}
                 >
-                  {activeStep === steps.length - 1 ? "完成" : "下一步"}
+                  {activeStep === steps.length - 1 ? "结束" : "下一步"}
                 </Button>
               </div>
             </div>
