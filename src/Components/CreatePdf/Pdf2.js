@@ -1,7 +1,11 @@
+import React, { useCallback } from "react";
 import jsPDF from "jspdf";
+import { useSelector } from "react-redux"; //新版里导入useDispatch和useSeletor
 import { addfont } from "../../font/font";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
 
-export default function Pdf2(uploadData) {
+function preparePdf(uploadData) {
   var doc = new jsPDF();
 
   addfont(doc);
@@ -69,4 +73,26 @@ export default function Pdf2(uploadData) {
   }
 
   doc.save("a4.pdf");
+}
+
+const useStyles = makeStyles(() => ({
+  successText: {
+    margin: "50px",
+  },
+}));
+
+export default function Pdf2() {
+  const classes = useStyles();
+  const uploadData = useSelector((state) => state.content);
+  preparePdf(uploadData);
+
+  return (
+    <React.Fragment>
+      <div>
+        <Typography variant="h4" className={classes.successText}>
+          😍下载成功
+        </Typography>
+      </div>
+    </React.Fragment>
+  );
 }

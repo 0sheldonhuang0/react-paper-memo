@@ -6,8 +6,8 @@ import Grid from "@material-ui/core/Grid";
 import Stepbar from "./Stepbar";
 import Upload from "./Upload";
 import Setup from "./Setup";
+import Preview from "./Preview.js";
 import { useDispatch, useSelector } from "react-redux"; //新版里导入useDispatch和useSeletor
-const Preview = React.lazy(() => import("./Preview")); //这个可以懒加载
 
 function preventDefault(event) {
   event.preventDefault();
@@ -37,11 +37,7 @@ function getMainContent(stepIndex) {
     case 1:
       return <Setup />;
     case 2:
-      return (
-        <React.Suspense fallback={<div>loading...</div>}>
-          <Preview />
-        </React.Suspense>
-      );
+      return <Preview />;
     default:
       return "Unknown stepIndex";
   }
