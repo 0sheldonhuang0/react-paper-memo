@@ -14,7 +14,7 @@ function preventDefault(event) {
 }
 
 function getSteps() {
-  return ["上传文件", "设置", "下载"];
+  return ["上传文件", "设置并下载", "如何打印"];
 }
 
 function getStepContent(stepIndex) {
@@ -22,9 +22,9 @@ function getStepContent(stepIndex) {
     case 0:
       return "选择一份文件并上传";
     case 1:
-      return "调整纸张设置并生成卡片";
+      return "调整纸张设置并生成卡片，点击“下一步”下载PDF文件";
     case 2:
-      return "请点击下载";
+      return "";
     default:
       return "Unknown stepIndex";
   }
