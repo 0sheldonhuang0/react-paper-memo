@@ -1,4 +1,4 @@
-import React, { useCallback, Component } from "react";
+import React, { useCallback, useEffect } from "react";
 import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
@@ -95,10 +95,19 @@ export default function Upload(props) {
     });
   };
 
+  const firstUpload = (temp) => {
+    console.log(temp);
+    if (temp === "") {
+      storeSuccessedData(false);
+    }
+  };
+
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     maxSize: "500000",
   });
+
+  useEffect(() => firstUpload(Successed));
 
   return (
     <React.Fragment>

@@ -7,6 +7,7 @@ import Stepbar from "./Stepbar";
 import Upload from "./Upload";
 import Setup from "./Setup";
 import Preview from "./Preview.js";
+import Welcome from "./Welcome.js";
 import { useDispatch, useSelector } from "react-redux"; //新版里导入useDispatch和useSeletor
 
 function preventDefault(event) {
@@ -20,10 +21,12 @@ function getSteps() {
 function getStepContent(stepIndex) {
   switch (stepIndex) {
     case 0:
-      return "选择一份文件并上传";
+      return "阅读上述后，点击下一步";
     case 1:
-      return "调整纸张设置并生成卡片，点击“下一步”下载PDF文件";
+      return "选择一份文件并上传";
     case 2:
+      return "调整纸张设置并生成卡片，点击“下一步”下载PDF文件";
+    case 3:
       return "";
     default:
       return "Unknown stepIndex";
@@ -33,10 +36,12 @@ function getStepContent(stepIndex) {
 function getMainContent(stepIndex) {
   switch (stepIndex) {
     case 0:
-      return <Upload />;
+      return <Welcome />;
     case 1:
-      return <Setup />;
+      return <Upload />;
     case 2:
+      return <Setup />;
+    case 3:
       return <Preview />;
     default:
       return "Unknown stepIndex";
@@ -82,9 +87,7 @@ export default function Ppmemo() {
           {activeStep === steps.length ? (
             <div>
               <Typography>完成！</Typography>
-              <Button onClick={handleReset} disabled>
-                重来
-              </Button>
+              <Button onClick={handleReset}>重来</Button>
             </div>
           ) : (
             <div>
@@ -105,10 +108,9 @@ export default function Ppmemo() {
                   color="primary"
                   onClick={handleNext}
                   className={classes.buttonArea}
-                  disabled={activeStep === steps.length - 1}
                   disabled={successedData === false}
                 >
-                  {activeStep === steps.length - 1 ? "结束" : "下一步"}
+                  {activeStep === steps.length - 1 ? "下载" : "下一步"}
                 </Button>
               </div>
             </div>

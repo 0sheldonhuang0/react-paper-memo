@@ -1,38 +1,8 @@
 import React, { useCallback } from "react";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
-import CircularProgress from "@material-ui/core/CircularProgress";
 import { makeStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
-import Pdf4 from "../CreatePdf/Pdf4";
-import Pdf8 from "../CreatePdf/Pdf8";
-import Pdf16 from "../CreatePdf/Pdf16";
-import Pdf32 from "../CreatePdf/Pdf32";
-import { useSelector } from "react-redux"; //新版里导入useDispatch和useSeletor
-
-const Pdf2 = React.lazy(() => import("../CreatePdf/Pdf2")); //preview.js整体懒加载
-
-const CreatPdf = (pdfType) => {
-  switch (pdfType) {
-    case "Pdf2":
-      return (
-        <React.Suspense
-          fallback={
-            <div>
-              <CircularProgress />
-              <Typography variant="h6">
-                等待下载中...这可能需要一些时间
-              </Typography>
-            </div>
-          }
-        >
-          <Pdf2 />
-        </React.Suspense>
-      );
-    default:
-      return "Unknown stepIndex";
-  }
-};
+import { useDispatch, useSelector } from "react-redux"; //新版里导入useDispatch和useSeletor
 
 const useStyles = makeStyles(() => ({
   printHelperArea: {
@@ -40,18 +10,22 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default function Preview() {
+export default function Welcome() {
   const classes = useStyles();
 
-  const uploadData = useSelector((state) => state.content);
-  const format = useSelector((state) => state.format);
-  //获取reducer上的数据
-  console.log(format.format);
+  // 用 useDispatch 產生 dispatch 方法，dispatch用来给reducer送数据
+  const dispatch = useDispatch();
+  const storeSuccessedData = (uploadData) => {
+    dispatch({
+      type: "ADD_UPLOADSUCCESS",
+      successedData: uploadData,
+    });
+  };
 
   return (
     <React.Fragment>
       <div>
-        <Container maxWidth="lg">
+        <Container maxWidth="lg" className={classes.printHelperArea}>
           <Typography variant="h5">如何进行打印？</Typography>
           <Typography variant="h6" align="left">
             A.自动双面打印
@@ -86,7 +60,7 @@ export default function Preview() {
             注意事项：使用手动进行双面打印时，您可以先小批量测试以确定打印的结果是否正确。
           </Typography>
         </Container>
-        {CreatPdf(format.format)}
+        {storeSuccessedData(true)}
       </div>
     </React.Fragment>
   );
