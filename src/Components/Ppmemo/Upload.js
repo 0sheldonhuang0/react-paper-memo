@@ -97,7 +97,6 @@ export default function Upload(props) {
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
-    accept: ".txt",
     maxSize: "500000",
   });
 
