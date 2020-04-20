@@ -1,6 +1,12 @@
 const initialState = {
   content: "欢迎使用ppmemo-https://hxd.red",
-  format: ["Pdf16", "fontFz", "fontMiddle", "fontMiddle", true],
+  format: {
+    format: "Pdf16",
+    font: "fontFz",
+    fontSizeA: "fontMiddle",
+    fontSizeB: "fontMiddle",
+    cardNum: true,
+  },
   successedData: false,
 };
 

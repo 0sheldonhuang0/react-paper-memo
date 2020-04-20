@@ -102,7 +102,6 @@ export default function Setup() {
               displayEmpty
               className={classes.selectEmpty}
             >
-              <MenuItem value={"Pdf32"}>排版32张</MenuItem>
               <MenuItem value={"Pdf16"}>排版16张</MenuItem>
               <MenuItem value={"Pdf8"}>排版8张</MenuItem>
               <MenuItem value={"Pdf4"}>排版4张</MenuItem>
@@ -122,7 +121,7 @@ export default function Setup() {
               className={classes.selectEmpty}
             >
               <MenuItem value={"fontFz"}>方正书宋</MenuItem>
-              <MenuItem value={"fontAl"}>阿里普惠</MenuItem>
+              <MenuItem value={"fontAl"}>更多字体即将上线</MenuItem>
             </Select>
           </Grid>
           <Grid item xs={12} md={6} lg={6} className={classes.paper}>

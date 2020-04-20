@@ -5,7 +5,7 @@ import { addfont } from "../../font/font";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 
-function preparePdf(uploadData) {
+function preparePdf(uploadData, format) {
   var doc = new jsPDF();
 
   addfont(doc);
@@ -35,10 +35,23 @@ function preparePdf(uploadData) {
   }
 
   for (let i = 0; i < displayUploadData.length - 1; i = i + 2) {
-    //设置分割线（虚线）
+    console.log(format);
+    //正面
     doc.setLineDash([1]);
     doc.line(5, verticalSegment, 205, verticalSegment);
 
+    //设置字体大小
+    switch (format.fontSizeA) {
+      case "fontSmall":
+        doc.setFontSize(16);
+        break;
+      case "fontMiddle":
+        doc.setFontSize(26);
+        break;
+      case "fontLarge":
+        doc.setFontSize(46);
+        break;
+    }
     doc.text(
       displayUploadDataA[i],
       horizonSegmentText,
@@ -51,10 +64,24 @@ function preparePdf(uploadData) {
       3 * verticalSegmentText,
       "center"
     );
+
+    //反面
     doc.addPage("a4");
-    //设置分割线（虚线）
     doc.setLineDash([1]);
     doc.line(5, verticalSegment, 205, verticalSegment);
+
+    //设置字体大小
+    switch (format.fontSizeB) {
+      case "fontSmall":
+        doc.setFontSize(16);
+        break;
+      case "fontMiddle":
+        doc.setFontSize(26);
+        break;
+      case "fontLarge":
+        doc.setFontSize(46);
+        break;
+    }
 
     doc.text(displayUploadDataB[i], horizonSegmentText, verticalSegmentText, {
       align: "center",
@@ -84,7 +111,9 @@ const useStyles = makeStyles(() => ({
 export default function Pdf2() {
   const classes = useStyles();
   const uploadData = useSelector((state) => state.content);
-  preparePdf(uploadData);
+  const format = useSelector((state) => state.format);
+
+  preparePdf(uploadData, format);
 
   return (
     <React.Fragment>
