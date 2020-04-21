@@ -121,7 +121,7 @@ export default function Setup() {
               displayEmpty
               className={classes.selectEmpty}
             >
-              <MenuItem value={"fontFz"}>方正书宋</MenuItem>
+              <MenuItem value={"fontFz"}>阿里普惠体</MenuItem>
               <MenuItem value={"fontAl"}>更多字体即将上线</MenuItem>
             </Select>
           </Grid>
