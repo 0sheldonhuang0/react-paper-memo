@@ -52,17 +52,16 @@ function preparePdf(uploadData, format) {
         doc.setFontSize(46);
         break;
     }
-    doc.text(
-      displayUploadDataA[i],
-      horizonSegmentText,
-      verticalSegmentText,
-      "center"
-    );
+
+    doc.text(displayUploadDataA[i], horizonSegmentText, verticalSegmentText, {
+      align: "center",
+      maxWidth: "105",
+    });
     doc.text(
       displayUploadDataA[i + 1],
       horizonSegmentText,
       3 * verticalSegmentText,
-      "center"
+      { align: "center", maxWidth: "105" }
     );
 
     //反面

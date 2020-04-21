@@ -9,6 +9,7 @@ const Pdf2 = React.lazy(() => import("../CreatePdf/Pdf2")); //preview.js整体�
 const Pdf4 = React.lazy(() => import("../CreatePdf/Pdf4")); //preview.js整体懒加载
 const Pdf8 = React.lazy(() => import("../CreatePdf/Pdf8")); //preview.js整体懒加载
 const Pdf16 = React.lazy(() => import("../CreatePdf/Pdf16")); //preview.js整体懒加载
+const Pdf32 = React.lazy(() => import("../CreatePdf/Pdf32")); //preview.js整体懒加载
 
 const CreatPdf = (pdfType) => {
   switch (pdfType) {
@@ -70,6 +71,21 @@ const CreatPdf = (pdfType) => {
           }
         >
           <Pdf16 />
+        </React.Suspense>
+      );
+    case "Pdf32":
+      return (
+        <React.Suspense
+          fallback={
+            <div>
+              <CircularProgress />
+              <Typography variant="h6">
+                等待下载中...这可能需要一些时间
+              </Typography>
+            </div>
+          }
+        >
+          <Pdf32 />
         </React.Suspense>
       );
     default:

@@ -102,6 +102,7 @@ export default function Setup() {
               displayEmpty
               className={classes.selectEmpty}
             >
+              <MenuItem value={"Pdf32"}>排版32张</MenuItem>
               <MenuItem value={"Pdf16"}>排版16张</MenuItem>
               <MenuItem value={"Pdf8"}>排版8张</MenuItem>
               <MenuItem value={"Pdf4"}>排版4张</MenuItem>
