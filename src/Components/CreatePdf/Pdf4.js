@@ -24,17 +24,11 @@ function preparePdf(uploadData, format) {
   let displayUploadDataA = []; //正面内容
   let displayUploadDataB = []; //反面内容
 
-  if (displayUploadData.length % 4 == 4 - 1) {
-    displayUploadData.push(" - ");
-  }
-  if (displayUploadData.length % 4 == 4 - 2) {
-    displayUploadData.push(" - ");
-    displayUploadData.push(" - ");
-  }
-  if (displayUploadData.length % 4 == 4 - 3) {
-    displayUploadData.push(" - ");
-    displayUploadData.push(" - ");
-    displayUploadData.push(" - ");
+  if (displayUploadData.length % 4 != 0) {
+    let temp = displayUploadData.length % 4;
+    for (let i = 0; i < 4 - temp; i++) {
+      displayUploadData.push(" - ");
+    }
   }
 
   console.log(displayUploadData);
