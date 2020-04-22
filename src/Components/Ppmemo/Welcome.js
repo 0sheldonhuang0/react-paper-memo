@@ -1,10 +1,10 @@
-import React, { useCallback } from "react";
+import React from "react";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
-import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
-import { useDispatch, useSelector } from "react-redux"; //新版里导入useDispatch和useSeletor
+import { useDispatch } from "react-redux"; //新版里导入useDispatch和useSeletor
 import makeTxtFile2 from "../../images/makeTxtFile2.jpg";
+import PaperMEMO from "../../images/PaperMEMO_example.txt";
 
 const useStyles = makeStyles(() => ({
   printHelperArea: {
@@ -23,10 +23,6 @@ const useStyles = makeStyles(() => ({
     width: "80%",
   },
 }));
-
-function preventDefault(event) {
-  event.preventDefault();
-}
 
 export default function Welcome() {
   const classes = useStyles();
@@ -71,19 +67,20 @@ export default function Welcome() {
             2. 一份符合条件的txt文件
           </Typography>
           <Typography variant="h6" align="left" className={classes.titleStyle}>
-            以下是txt文件示例(使用“-”符号分割正反面)
+            以下是txt文件示例：
+          </Typography>
+          <Typography
+            variant="body1"
+            align="center"
+            className={classes.textStyle}
+          >
+            使用“-”符号分割正反面，每张卡片一行
           </Typography>
           <img src={makeTxtFile2} alt="" className={classes.imageStyle} />
         </Container>
-        <Typography variant="overline" className={classes.titleStyle}>
-          <Link
-            href="https://uniquelab.cn/ppmemo/PaperMEMO示例文件.txt"
-            onClick={preventDefault}
-          >
-            点击下载
-          </Link>
-          示例文件（提示：可以使用Excel制作，点击下一步查看说明）
-        </Typography>
+        <a href={PaperMEMO} download>
+          点击下载示例文件
+        </a>
         {storeSuccessedData(true)}
       </div>
     </React.Fragment>

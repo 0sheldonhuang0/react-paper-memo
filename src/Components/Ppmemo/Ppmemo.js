@@ -8,11 +8,7 @@ import Upload from "./Upload";
 import Setup from "./Setup";
 import Preview from "./Preview.js";
 import Welcome from "./Welcome.js";
-import { useDispatch, useSelector } from "react-redux"; //新版里导入useDispatch和useSeletor
-
-function preventDefault(event) {
-  event.preventDefault();
-}
+import { useSelector } from "react-redux"; //新版里导入useDispatch和useSeletor
 
 function getSteps() {
   return ["准备", "上传文件", "设置并下载"];
@@ -72,7 +68,6 @@ export default function Ppmemo() {
     setActiveStep(0);
   };
 
-  const uploadData = useSelector((state) => state.content);
   const successedData = useSelector((state) => state.successedData);
   //获取reducer上的数据
 

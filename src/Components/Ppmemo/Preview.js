@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import CircularProgress from "@material-ui/core/CircularProgress";
@@ -110,7 +110,6 @@ const useStyles = makeStyles(() => ({
 export default function Preview() {
   const classes = useStyles();
 
-  const uploadData = useSelector((state) => state.content);
   const format = useSelector((state) => state.format);
   //获取reducer上的数据
   console.log(format.format);

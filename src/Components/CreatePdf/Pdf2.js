@@ -1,9 +1,10 @@
-import React, { useCallback } from "react";
+import React from "react";
 import jsPDF from "jspdf";
 import { useSelector } from "react-redux"; //新版里导入useDispatch和useSeletor
 import { addfont } from "../../font/font";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import Emoji from "../Emoji";
 
 function preparePdf(uploadData, format) {
   var doc = new jsPDF();
@@ -19,12 +20,11 @@ function preparePdf(uploadData, format) {
   var horizonSegmentText = paperA4[1] / 2;
 
   //设置内容位置
-  console.log(uploadData);
   let displayUploadData = uploadData.split("\n"); //将文件内容根据换行符隔开，["A-B","A-B","A-B","A-B"...]
   let displayUploadDataA = []; //正面内容
   let displayUploadDataB = []; //反面内容
 
-  if (displayUploadData.length % 2 != 0) {
+  if (displayUploadData.length % 2 !== 0) {
     displayUploadData.push(" - ");
   }
 
@@ -50,6 +50,9 @@ function preparePdf(uploadData, format) {
         break;
       case "fontLarge":
         doc.setFontSize(46);
+        break;
+      default:
+        doc.setFontSize(26);
         break;
     }
 
@@ -79,6 +82,9 @@ function preparePdf(uploadData, format) {
         break;
       case "fontLarge":
         doc.setFontSize(46);
+        break;
+      default:
+        doc.setFontSize(26);
         break;
     }
 
@@ -118,7 +124,8 @@ export default function Pdf2() {
     <React.Fragment>
       <div>
         <Typography variant="h4" className={classes.successText}>
-          😍下载成功
+          <Emoji symbol="😍" />
+          下载成功
         </Typography>
       </div>
     </React.Fragment>
