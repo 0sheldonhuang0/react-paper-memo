@@ -24,17 +24,28 @@ import Ppmemo from "./Ppmemo/Ppmemo";
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://uniquelab.cn/pm">
-        Paper MEMO 纸记卡片
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {" By HXD.RED "}
-      <Link color="inherit" href="https://hxd.red">
-        BLOG
-      </Link>{" "}
-    </Typography>
+    <div>
+      <Typography variant="body2" color="textSecondary" align="center">
+        <Link color="inherit" href="https://uniquelab.cn/ppmemo">
+          Paper MEMO 纸记卡片 v1.0.0
+        </Link>
+        {" by "}
+        <Link color="inherit" href="https://hxd.red">
+          HXD.RED BLOG
+        </Link>
+      </Typography>
+      <Typography variant="overline" color="textSecondary" align="center">
+        {"Copyright © "}
+        <Link color="inherit" href="https://uniquelab.cn">
+          UNiQUElab.cn
+        </Link>
+        {" 2016-"}
+        {new Date().getFullYear()}{" "}
+        <Link color="inherit" href="http://beian.miit.gov.cn/">
+          沪ICP备14038257号-2
+        </Link>
+      </Typography>
+    </div>
   );
 }
 

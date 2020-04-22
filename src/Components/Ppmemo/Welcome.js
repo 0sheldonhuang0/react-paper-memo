@@ -4,6 +4,7 @@ import Container from "@material-ui/core/Container";
 import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
 import { useDispatch, useSelector } from "react-redux"; //新版里导入useDispatch和useSeletor
+import makeTxtFile2 from "../../images/makeTxtFile2.jpg";
 
 const useStyles = makeStyles(() => ({
   printHelperArea: {
@@ -17,8 +18,9 @@ const useStyles = makeStyles(() => ({
   titleStyle: {
     margin: "10px",
   },
-  exampleStyle: {
-    textIndent: "50px",
+  imageStyle: {
+    margin: "20px",
+    width: "80%",
   },
 }));
 
@@ -71,39 +73,17 @@ export default function Welcome() {
           <Typography variant="h6" align="left" className={classes.titleStyle}>
             以下是txt文件示例(使用“-”符号分割正反面)
           </Typography>
-          <Typography
-            variant="body2"
-            align="left"
-            className={classes.exampleStyle}
-          >
-            A面内容-B面内容
-          </Typography>
-          <Typography
-            variant="body2"
-            align="left"
-            className={classes.exampleStyle}
-          >
-            kettle-n.(浇水用的)水壶；水壶，水锅
-          </Typography>
-          <Typography
-            variant="body2"
-            align="left"
-            className={classes.exampleStyle}
-          >
-            réponse(français)-f. 回答， 答复， 回信； 答辩； 答案； 反应，
-            答应； 响应
-          </Typography>
-
-          <Typography variant="overline" className={classes.titleStyle}>
-            <Link
-              href="./images/PaperMEMO示例文件.txt"
-              onClick={preventDefault}
-            >
-              点击下载
-            </Link>
-            示例文件（提示：可以使用Excel制作，然后复制粘贴到txt文件中）
-          </Typography>
+          <img src={makeTxtFile2} alt="" className={classes.imageStyle} />
         </Container>
+        <Typography variant="overline" className={classes.titleStyle}>
+          <Link
+            href="https://uniquelab.cn/ppmemo/PaperMEMO示例文件.txt"
+            onClick={preventDefault}
+          >
+            点击下载
+          </Link>
+          示例文件（提示：可以使用Excel制作，点击下一步查看说明）
+        </Typography>
         {storeSuccessedData(true)}
       </div>
     </React.Fragment>

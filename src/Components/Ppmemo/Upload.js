@@ -6,6 +6,7 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import { useDropzone } from "react-dropzone";
 import { useDispatch, useSelector } from "react-redux"; //新版里导入useDispatch和useSeletor
+import makeTxtFile from "../../images/makeTxtFile.gif";
 
 function preventDefault(event) {
   event.preventDefault();
@@ -25,6 +26,10 @@ const useStyles = makeStyles(() => ({
     textAlign: "center",
     position: "relative",
     top: "40%",
+  },
+  imageStyle: {
+    margin: "50px",
+    width: "80%",
   },
 }));
 
@@ -121,13 +126,16 @@ export default function Upload(props) {
 
   return (
     <React.Fragment>
+      <img src={makeTxtFile} alt="" className={classes.imageStyle} />
       <div {...getRootProps()}>
         <Paper className={classes.root}>
           <input {...getInputProps()} />
           {isDragActive ? (
             <p className={classes.text}>😆 拖到这里来 ...</p>
           ) : (
-            <p className={classes.text}>拖拽到此处 或 点击此处 上传文件</p>
+            <p className={classes.text}>
+              拖拽到此处 或 点击此处 上传符合要求的txt文件
+            </p>
           )}
           <p>{Successed}</p>
         </Paper>
