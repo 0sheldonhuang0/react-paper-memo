@@ -15,17 +15,17 @@ function preventDefault(event) {
 }
 
 function getSteps() {
-  return ["上传文件", "设置并下载", "如何打印"];
+  return ["准备", "上传文件", "设置并下载"];
 }
 
 function getStepContent(stepIndex) {
   switch (stepIndex) {
     case 0:
-      return "阅读上述后，点击下一步";
+      return "阅读上述准备步骤后，点击下一步";
     case 1:
-      return "选择一份文件并上传";
+      return "选择一份文件并上传（当且仅当上传符合条件的txt文件后，才能进行下一步）";
     case 2:
-      return "调整纸张设置并生成卡片，点击“下一步”下载PDF文件";
+      return "调整纸张设置并生成卡片，点击“下载”获得PDF文件";
     case 3:
       return "";
     default:
@@ -86,8 +86,9 @@ export default function Ppmemo() {
         <div className={classes.fixedHeight100}>
           {activeStep === steps.length ? (
             <div>
-              <Typography>完成！</Typography>
-              <Button onClick={handleReset}>重来</Button>
+              <Button onClick={handleReset} variant="contained">
+                重来
+              </Button>
             </div>
           ) : (
             <div>

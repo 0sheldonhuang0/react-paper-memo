@@ -38,7 +38,15 @@ export default function Upload(props) {
     //设置内容位置
     console.log(uploadData);
     let displayUploadData = uploadData.split("\n"); //将文件内容根据换行符隔开，["A-B","A-B","A-B","A-B"...]
+
+    for (var i = displayUploadData.length - 1; i >= 0; i--) {
+      if (displayUploadData[i] === "") {
+        displayUploadData.splice(i, 1);
+      }
+    }
+
     console.log(displayUploadData);
+
     if (displayUploadData == undefined) {
       setSuccessed("❌文件不符合要求");
     }
@@ -73,7 +81,9 @@ export default function Upload(props) {
         const binaryStr = reader.result;
         console.log(binaryStr); //读取文件内容
         console.log(file.name); //读取文件名
-        verifyFile(binaryStr);
+        let temp = binaryStr.replace(/\t/g, "");
+        console.log(temp);
+        verifyFile(temp);
       };
       reader.readAsText(file);
     });

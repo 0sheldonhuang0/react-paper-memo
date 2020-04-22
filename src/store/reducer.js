@@ -11,10 +11,6 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
-  console.log(state.content);
-  console.log(state.format);
-  console.log(action);
-  console.log(state);
   switch (action.type) {
     case "ADD_FORMAT": {
       const newTemp = action.format;
