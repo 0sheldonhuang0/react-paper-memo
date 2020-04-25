@@ -10,14 +10,12 @@ import List from "@material-ui/core/List";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
-import Badge from "@material-ui/core/Badge";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Link from "@material-ui/core/Link";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import NotificationsIcon from "@material-ui/icons/Notifications";
 import { mainListItems, secondaryListItems } from "./listItems";
 import Helper from "./Helper";
 import Ppmemo from "./Ppmemo/Ppmemo";
@@ -27,7 +25,7 @@ function Copyright() {
     <div>
       <Typography variant="body2" color="textSecondary" align="center">
         <Link color="inherit" href="https://uniquelab.cn/ppmemo">
-          Paper MEMO 纸记卡片 v1.0.0
+          Paper MEMO 纸记卡片 v1.0.1
         </Link>
         {" by "}
         <Link color="inherit" href="https://hxd.red">

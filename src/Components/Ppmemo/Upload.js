@@ -1,16 +1,9 @@
 import React, { useCallback, useEffect } from "react";
-import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
-import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import { useDropzone } from "react-dropzone";
-import { useDispatch, useSelector } from "react-redux"; //新版里导入useDispatch和useSeletor
-import makeTxtFile from "../../images/makeTxtFile.gif";
-
-function preventDefault(event) {
-  event.preventDefault();
-}
+import { useDispatch } from "react-redux"; //新版里导入useDispatch和useSeletor
+import Emoji from "../Emoji";
 
 const useStyles = makeStyles(() => ({
   depositContext: {
@@ -27,10 +20,6 @@ const useStyles = makeStyles(() => ({
     position: "relative",
     top: "40%",
   },
-  imageStyle: {
-    margin: "50px",
-    width: "80%",
-  },
 }));
 
 export default function Upload(props) {
@@ -41,7 +30,6 @@ export default function Upload(props) {
 
   const verifyFile = (uploadData) => {
     //设置内容位置
-    console.log(uploadData);
     let displayUploadData = uploadData.split("\n"); //将文件内容根据换行符隔开，["A-B","A-B","A-B","A-B"...]
 
     for (var i = displayUploadData.length - 1; i >= 0; i--) {
@@ -50,24 +38,21 @@ export default function Upload(props) {
       }
     }
 
-    console.log(displayUploadData);
-
-    if (displayUploadData == undefined) {
+    if (displayUploadData === undefined) {
       setSuccessed("❌文件不符合要求");
     }
 
     for (let i = 0; i < displayUploadData.length; i++) {
       let displayUploadDataTemp = displayUploadData[i].split("-"); //暂时储存一张卡片正反面，["A","B"]
-      console.log(displayUploadDataTemp);
       if (
-        displayUploadDataTemp[0] == undefined ||
-        displayUploadDataTemp[1] == undefined
+        displayUploadDataTemp[0] === undefined ||
+        displayUploadDataTemp[1] === undefined
       ) {
         setSuccessed("❌文件不符合要求");
         storeSuccessedData(false);
         break;
       } else {
-        setSuccessed("✅ " + " 文件上传成功"); //使用下方的函数newUploadData
+        setSuccessed("✅ 文件上传成功"); //使用下方的函数newUploadData
         storeUploadData(uploadData);
         storeSuccessedData(true);
       }
@@ -84,10 +69,7 @@ export default function Upload(props) {
       reader.onload = () => {
         // Do whatever you want with the file contents
         const binaryStr = reader.result;
-        console.log(binaryStr); //读取文件内容
-        console.log(file.name); //读取文件名
         let temp = binaryStr.replace(/\t/g, "");
-        console.log(temp);
         verifyFile(temp);
       };
       reader.readAsText(file);
@@ -111,7 +93,6 @@ export default function Upload(props) {
   };
 
   const firstUpload = (temp) => {
-    console.log(temp);
     if (temp === "") {
       storeSuccessedData(false);
     }
@@ -126,12 +107,13 @@ export default function Upload(props) {
 
   return (
     <React.Fragment>
-      <img src={makeTxtFile} alt="" className={classes.imageStyle} />
       <div {...getRootProps()}>
         <Paper className={classes.root}>
           <input {...getInputProps()} />
           {isDragActive ? (
-            <p className={classes.text}>😆 拖到这里来 ...</p>
+            <p className={classes.text}>
+              <Emoji symbol="😆" /> 拖到这里来 ...
+            </p>
           ) : (
             <p className={classes.text}>
               拖拽到此处 或 点击此处 上传符合要求的txt文件

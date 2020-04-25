@@ -1,14 +1,10 @@
 import React from "react";
-import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Title from "./Title";
 import wechat from "../images/wechat.jpg";
 import conjHelper from "../images/conjHelper.jpg";
-
-function preventDefault(event) {
-  event.preventDefault();
-}
+import bannerSmall from "../images/react-ppmemo-banner-small.jpg";
 
 const useStyles = makeStyles(() => ({
   depositContext: {
@@ -37,6 +33,7 @@ export default function Helper() {
         闪记卡片（Flash
         Card），大部分情况下，它们被用作单词记忆卡片。主要目的是帮助记忆，正面写下问题，反面写答案。
       </Typography>
+      <img src={bannerSmall} alt="" className={classes.imageStyle} />
       <Typography variant="body2" align="left" className={classes.textStyle}>
         Paper MEMO是一个在线工具，它可以自动生成可打印、可裁剪的记忆卡片集。
       </Typography>

@@ -1,9 +1,10 @@
-import React, { useCallback } from "react";
+import React from "react";
 import jsPDF from "jspdf";
 import { useSelector } from "react-redux"; //新版里导入useDispatch和useSeletor
 import { addfont } from "../../font/font";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import Emoji from "../Emoji";
 
 function preparePdf(uploadData, format) {
   var doc = new jsPDF();
@@ -25,7 +26,7 @@ function preparePdf(uploadData, format) {
   let displayUploadDataA = []; //正面内容
   let displayUploadDataB = []; //反面内容
 
-  if (displayUploadData.length % 16 != 0) {
+  if (displayUploadData.length % 16 !== 0) {
     let temp = displayUploadData.length % 16;
     for (let i = 0; i < 16 - temp; i++) {
       displayUploadData.push(" - ");
@@ -64,6 +65,9 @@ function preparePdf(uploadData, format) {
         break;
       case "fontLarge":
         doc.setFontSize(26);
+        break;
+      default:
+        doc.setFontSize(18);
         break;
     }
 
@@ -106,6 +110,9 @@ function preparePdf(uploadData, format) {
         break;
       case "fontLarge":
         doc.setFontSize(26);
+        break;
+      default:
+        doc.setFontSize(18);
         break;
     }
 
@@ -157,7 +164,8 @@ export default function Pdf4() {
     <React.Fragment>
       <div>
         <Typography variant="h4" className={classes.successText}>
-          😍下载成功
+          <Emoji symbol="😍" />
+          下载成功
         </Typography>
       </div>
     </React.Fragment>
