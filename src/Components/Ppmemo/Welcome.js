@@ -4,6 +4,7 @@ import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
 import { useDispatch } from "react-redux"; //新版里导入useDispatch和useSeletor
 import makeTxtFile2 from "../../images/makeTxtFile2.jpg";
+import bannerLarge from "../../images/react-ppmemo-banner-large.jpg";
 import PaperMEMO from "../../images/PaperMEMO_example.txt";
 
 const useStyles = makeStyles(() => ({
@@ -40,6 +41,7 @@ export default function Welcome() {
     <React.Fragment>
       <div>
         <Container maxWidth="lg" className={classes.printHelperArea}>
+          <img src={bannerLarge} alt="" className={classes.imageStyle} />
           <Typography
             variant="body1"
             align="left"
