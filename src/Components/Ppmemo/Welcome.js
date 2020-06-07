@@ -4,7 +4,7 @@ import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
 import { useDispatch } from "react-redux"; //新版里导入useDispatch和useSeletor
 import makeTxtFile2 from "../../images/makeTxtFile2.jpg";
-import bannerLarge from "../../images/react-ppmemo-banner-large.jpg";
+import bannerLarge from "../../images/react-ppmemo-banner-small.jpg";
 import PaperMEMO from "../../images/PaperMEMO_example.txt";
 
 const useStyles = makeStyles(() => ({
