@@ -8,23 +8,23 @@ import LayersIcon from "@material-ui/icons/Layers";
 
 export const mainListItems = (
   <div>
-    <ListItem button>
-      <ListItemIcon>
-        <DashboardIcon />
-      </ListItemIcon>
-      <ListItemText primary="纸记卡片" />
-    </ListItem>
-    <ListItem button>
+    <ListItem button component="a" href="https://xd.sh.cn/ppmemo-1-0-0/">
       <ListItemIcon>
         <LayersIcon />
       </ListItemIcon>
       <ListItemText primary="使用说明" />
     </ListItem>
-    <ListItem button>
+    <ListItem button component="a" href="https://xd.sh.cn">
       <ListItemIcon>
         <BarChartIcon />
       </ListItemIcon>
       <ListItemText primary="更多工具" />
+    </ListItem>
+    <ListItem button component="a" href="https://xd.sh.cn/react-app-setup-ppmemo/">
+      <ListItemIcon>
+        <DashboardIcon />
+      </ListItemIcon>
+      <ListItemText primary="技术总结" />
     </ListItem>
   </div>
 );

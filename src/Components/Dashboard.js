@@ -23,13 +23,15 @@ import Ppmemo from "./Ppmemo/Ppmemo";
 function Copyright() {
   return (
     <div>
+      <Typography variant="overline" color="textSecondary" align="center">
+        {" by "}
+        <Link color="inherit" href="https://xd.sh.cn">
+          xd.sh.cn 不淡定的实验室
+        </Link>
+      </Typography>
       <Typography variant="body2" color="textSecondary" align="center">
         <Link color="inherit" href="https://uniquelab.cn/ppmemo">
-          Paper MEMO 纸记卡片 v1.0.1
-        </Link>
-        {" by "}
-        <Link color="inherit" href="https://hxd.red">
-          HXD.RED BLOG
+          Paper MEMO 纸记卡片 v1.0.2
         </Link>
       </Typography>
       <Typography variant="overline" color="textSecondary" align="center">
