@@ -1,68 +1,70 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+项目地址：
 
-In the project directory, you can run:
+- 体验网址：[https://uniquelab.cn/ppmemo](https://uniquelab.cn/ppmemo)
+- 短网址：[https://xd.sh.cn/pm](https://xd.sh.cn/pm)
+- 项目博客地址：[react 网页应用「纸记卡片 Paper MEMO」](https://xd.sh.cn/ppmemo)
+- 项目的使用方法（for 普通用户）：见下文或者点击此篇文章：[如何让背单词看得见，摸得着？「纸记卡片 Paper MEMO」上线！自动生成可打印、裁剪的记忆卡片集](https://xd.sh.cn/ppmemo-1-0-0/)
+- 项目的使用方法（for 开发者）：[初始化一个react项目所需要做得一些事：以「纸记卡片 Paper MEMO」为例](https://xd.sh.cn/react-app-setup-ppmemo/)
 
-### `npm start`
+闪记卡片（Flash Card），大部分情况下，它们被用作单词记忆卡片。主要目的是帮助记忆，正面写下问题，反面写答案。
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 这是什么？
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+「纸记卡片 Paper MEMO」是一个在线工具，它可以自动生成可打印、可裁剪的记忆卡片集。它能生成 A4 大小的 PDF 文件，排布一定数量的卡片：打印出来后进行裁剪，让你以“看得见摸得着”的方式使用闪记卡片。
 
-### `npm test`
+用户只需准备`一份符合条件的txt文件`（使用`短横杠`分割卡片正反面、一行一张卡片、没有空白行）即可完成卡片打印文件的制作。比如说，有下列一些单词：
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+kettle-n.(浇水用的)水壶；水壶，水锅
+ferry-n.渡船，渡口；v.渡运；(越海)空运
+shell-n.（贝、卵、坚果等的）壳；外壳；炮弹；（人的）表面性格；vt.去壳，脱落；炮击；vi.剥皮；炮轰
+```
 
-### `npm run build`
+其中英文单词和中文释义用`短横杠`进行分割：`短横杠`的前面是卡片的正面、`短横杠`的后面是卡片的反面。通过「纸记卡片 Paper MEMO」工具，可以生成在单张 A4 纸上进行排布的小卡片。工具生成 A4 大小的 pdf，用户可选择 A4 纸上的分割数量，目前可以分成 2、4、8、16、32 张。**将这份 pdf 进行双面打印后，沿着虚线裁剪，即可得到一张张有正反两面的闪记卡片**。下载的示例 pdf 文件如下所示（每张纸分为 8 张卡片）：
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![](https://xd.sh.cn/uploads/2020/04/ppmemo-2020042500.jpg)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+当然它的运用远不止用来背单词，它可以用来背诵或者辅助记忆很多东西，比如说：历史知识点、背诵、正面提问题反面写答案等等，也就是类似 Anki 或者时 Quizlet 之类的工具。那么既然有那么多手机 app 可以做到，为什么还要做「纸记卡片 Paper MEMO」这么“不环保”的东西呢？这就像拍立得或者纸质书籍仍然存在一样，纸制品可以带来 app 体会不到的感觉。
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 怎么操作？
 
-### `npm run eject`
+![](https://xd.sh.cn/uploads/2020/04/ppmemo-2020042501.jpg)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+进入界面之后，首先是提示：用户需要有`一份符合条件的txt文件`以及`打印机`或者`可以去打印店打印`。首页有可供下载的示例 txt 文件，用户可以先使用这份 txt 文件进行测试。此外 txt 文件制作可以很方便地使用 Excel 实现，具体步骤如下方的动图：
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![](https://xd.sh.cn/uploads/2020/04/ppmemo-2020042503.gif)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+当且仅当上传符合条件的 txt 文件后，才能进行下一步。在设置页面中，用户可以选择在`单张A4纸上的卡片数量的排布`、`卡片字体`（目前暂时只有`阿里普惠体`）、以及`卡片正反面的字体大小`。再次点击下一步之后即可生成 pdf 文件，在生成过程中**可能需要等待一些时间**（初次访问可能会等待`一分钟`时间，建议使用电脑端进行访问；再次制作可能会有浏览器缓存，速度会大大加快）。
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![](https://xd.sh.cn/uploads/2020/04/ppmemo-2020042502.jpg)
 
-## Learn More
+获得 pdf 文件之后，需要将它进行`双面打印`（注意事项：使用手动进行双面打印时，可以先小批量测试以确定打印的结果是否正确。）：
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 自动双面打印
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. 如果您的打印机“双面打印”可用，则将打印机设置为“双面打印”。
+2. 直接打印您刚才下载的 PDF 文件。
 
-### Code Splitting
+### 手动双面打印
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+1. 如果您的打印机“双面打印”不可用，则将打印机设置为“手动双面打印”。
+2. 打印时，会先打印单面。单面打印完毕后，您的打印机将提示您将纸翻转后再次送入打印机。
 
-### Analyzing the Bundle Size
+### 其他打印方法
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+1. 如果您的打印机均不支持上述打印方式，则可以手动设置“奇数偶数”页进行打印。
+2. 打印时，先打印“奇数”页面。然后手动翻转纸张打印“偶数”页面。
 
-### Making a Progressive Web App
+## 它是怎么运作的？
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+整个项目使用 react 开发，目前为纯前端，其中 pdf 文件也直接在前端生成，用户上传的 txt 文件不会存到服务器中。在之后的版本考虑中，可能会加上登陆注册等功能，进一步扩展，比如用户词库共享、用户历史文件查询等功能。
 
-### Advanced Configuration
+项目地址使用了之前遗留下来的网址`uniquelab.cn`，之所以选择这个网址，是因为它的服务器在境内（反正有效期还有老长时间，闲置）、境内访问的速度大大加快。所以项目的网址定为`uniquelab.cn/ppmemo`,此外还配了一个短网址`hxd.red/pm`，使用该网址访问会直接跳转至前者。
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+项目使用的字体是`阿里普惠体`，个人认为还是中规中矩、比较耐看的。主要是字体较全：阿里巴巴普惠体共收录 116,895 个全形汉字（含 5 个字重，目前「纸记卡片 Paper MEMO」中使用了`regular`字重），西文 Alibaba Sans 共 7,205 个拉丁字母（2 种风格、共 11 个字重），覆盖 172 个语种（覆盖大部分欧语国家）。
 
-### Deployment
+## 报错和建议
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+若使用过程中，有疑问、错误的情况、改进意见，欢迎到公众号`不淡定的实验室`（微信号：`hxdred`）后台或者邮件进行反馈。非常感谢您的建议、意见、奇思妙想和发现的错误！
