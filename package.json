@@ -1,8 +1,8 @@
 {
-  "name": "react-ppmemo",
-  "version": "0.1.0",
+  "name": "react-paper-memo",
+  "version": "1.0.3",
   "private": true,
-  "homepage": "https://uniquelab.cn/ppmemo/",
+  "homepage": "https://xd.sh.cn/pm/",
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
