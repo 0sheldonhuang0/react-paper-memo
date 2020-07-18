@@ -18,6 +18,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import { mainListItems, secondaryListItems } from "./listItems";
 import Helper from "./Helper";
+import Github from "./Github";
 import Ppmemo from "./Ppmemo/Ppmemo";
 
 function Copyright() {
@@ -121,6 +122,7 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: theme.spacing(4),
   },
   paper: {
+    marginBottom: theme.spacing(3),
     padding: theme.spacing(2),
     display: "flex",
     overflow: "auto",
@@ -159,7 +161,7 @@ export default function Dashboard() {
               open && classes.menuButtonHidden
             )}
           >
-            <MenuIcon />
+            <MenuIcon /> {/*菜单图标*/}
           </IconButton>
           <Typography
             component="h1"
@@ -168,6 +170,7 @@ export default function Dashboard() {
             noWrap
             className={classes.title}
           >
+            {/*这里是标题*/}
             Paper MEMO
           </Typography>
         </Toolbar>
@@ -195,14 +198,17 @@ export default function Dashboard() {
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
-            {/* 最近存款2 Recent Deposits */}
+            {/* 制作你的卡片集 */}
             <Grid item xs={12} md={8} lg={9}>
               <Paper className={classes.paper}>
                 <Ppmemo />
               </Paper>
             </Grid>
-            {/* 最近存款 Recent Deposits */}
+            {/* 侧栏：这是什么？ */}
             <Grid item xs={12} md={4} lg={3}>
+              <Paper className={classes.paper}>
+                <Github />
+              </Paper>
               <Paper className={classes.paper}>
                 <Helper />
               </Paper>
