@@ -30,7 +30,7 @@ export default function Upload(props) {
 
   const verifyFile = (uploadData) => {
     //设置内容位置
-    let displayUploadData = uploadData.split("\n"); //将文件内容根据换行符隔开，["A-B","A-B","A-B","A-B"...]
+    let displayUploadData = uploadData.split("\n"); //将文件内容根据换行符隔开，["A*B","A*B","A*B","A*B"...]
 
     for (var i = displayUploadData.length - 1; i >= 0; i--) {
       if (displayUploadData[i] === "") {
@@ -43,7 +43,7 @@ export default function Upload(props) {
     }
 
     for (let i = 0; i < displayUploadData.length; i++) {
-      let displayUploadDataTemp = displayUploadData[i].split("-"); //暂时储存一张卡片正反面，["A","B"]
+      let displayUploadDataTemp = displayUploadData[i].split("*"); //暂时储存一张卡片正反面，["A","B"]
       if (
         displayUploadDataTemp[0] === undefined ||
         displayUploadDataTemp[1] === undefined

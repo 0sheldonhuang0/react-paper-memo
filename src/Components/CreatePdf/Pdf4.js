@@ -21,19 +21,19 @@ function preparePdf(uploadData, format) {
 
   //设置内容位置
   console.log(uploadData);
-  let displayUploadData = uploadData.split("\n"); //将文件内容根据换行符隔开，["A-B","A-B","A-B","A-B"...]
+  let displayUploadData = uploadData.split("\n"); //将文件内容根据换行符隔开，["A*B","A*B","A*B","A*B"...]
   let displayUploadDataA = []; //正面内容
   let displayUploadDataB = []; //反面内容
 
   if (displayUploadData.length % 4 !== 0) {
     let temp = displayUploadData.length % 4;
     for (let i = 0; i < 4 - temp; i++) {
-      displayUploadData.push(" - ");
+      displayUploadData.push(" * ");
     }
   }
 
   for (let i = 0; i < displayUploadData.length; i++) {
-    let displayUploadDataTemp = displayUploadData[i].split("-"); //暂时储存一张卡片正反面，["A","B"]
+    let displayUploadDataTemp = displayUploadData[i].split("*"); //暂时储存一张卡片正反面，["A","B"]
     displayUploadDataA.push(displayUploadDataTemp[0]); //["A","A","A","A","A"...]
     displayUploadDataB.push(displayUploadDataTemp[1]); //["B","B","B","B","B"...]
   }

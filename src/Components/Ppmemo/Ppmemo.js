@@ -58,14 +58,17 @@ export default function Ppmemo() {
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    window.scrollTo(0, 0);
   };
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    window.scrollTo(0, 0);
   };
 
   const handleReset = () => {
     setActiveStep(0);
+    window.scrollTo(0, 0);
   };
 
   const successedData = useSelector((state) => state.successedData);
