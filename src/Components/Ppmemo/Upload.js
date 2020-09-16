@@ -91,7 +91,6 @@ export default function Upload(props) {
       successedData: uploadData,
     });
   };
-
   const firstUpload = (temp) => {
     if (temp === "") {
       storeSuccessedData(false);
