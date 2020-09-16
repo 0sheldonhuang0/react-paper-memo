@@ -9,6 +9,7 @@ import Setup from "./Setup";
 import Preview from "./Preview.js";
 import Welcome from "./Welcome.js";
 import { useSelector } from "react-redux"; //新版里导入useDispatch和useSeletor
+import ScrollToTop from "../ScrollToTop";
 
 function getSteps() {
   return ["准备", "上传文件", "设置并下载"];
@@ -58,17 +59,14 @@ export default function Ppmemo() {
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    window.scrollTo(0, 0);
   };
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
-    window.scrollTo(0, 0);
   };
 
   const handleReset = () => {
     setActiveStep(0);
-    window.scrollTo(0, 0);
   };
 
   const successedData = useSelector((state) => state.successedData);
@@ -76,6 +74,7 @@ export default function Ppmemo() {
 
   return (
     <React.Fragment>
+      <ScrollToTop />
       <div className={classes.root}>
         <Stepbar activeStep={activeStep} steps={steps} />
         <Grid className={classes.fixedHeight280}>
