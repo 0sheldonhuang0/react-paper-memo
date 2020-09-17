@@ -2,8 +2,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 项目地址：
 
-- 体验网址：[https://uniquelab.cn/ppmemo](https://uniquelab.cn/ppmemo)
-- 短网址：[https://xd.sh.cn/pm](https://xd.sh.cn/pm)
+- 体验网址：[https://xd.sh.cn/pm](https://xd.sh.cn/pm)
+- 备用网址：[https://uniquelab.cn/ppmemo](https://uniquelab.cn/ppmemo)
 - 项目博客地址：[react 网页应用「纸记卡片 Paper MEMO」](https://xd.sh.cn/ppmemo)
 - 项目的使用方法（for 普通用户）：见下文或者点击此篇文章：[如何让背单词看得见，摸得着？「纸记卡片 Paper MEMO」上线！自动生成可打印、裁剪的记忆卡片集](https://xd.sh.cn/ppmemo-1-0-0/)
 - 项目的使用方法（for 开发者）：[初始化一个react项目所需要做得一些事：以「纸记卡片 Paper MEMO」为例](https://xd.sh.cn/react-app-setup-ppmemo/)
@@ -14,15 +14,15 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 「纸记卡片 Paper MEMO」是一个在线工具，它可以自动生成可打印、可裁剪的记忆卡片集。它能生成 A4 大小的 PDF 文件，排布一定数量的卡片：打印出来后进行裁剪，让你以“看得见摸得着”的方式使用闪记卡片。
 
-用户只需准备`一份符合条件的txt文件`（使用`短横杠`分割卡片正反面、一行一张卡片、没有空白行）即可完成卡片打印文件的制作。比如说，有下列一些单词：
+用户只需准备`一份符合条件的txt文件`（使用`星号*`分割卡片正反面、一行一张卡片、没有空白行）即可完成卡片打印文件的制作。比如说，有下列一些单词：
 
 ```
-kettle-n.(浇水用的)水壶；水壶，水锅
-ferry-n.渡船，渡口；v.渡运；(越海)空运
-shell-n.（贝、卵、坚果等的）壳；外壳；炮弹；（人的）表面性格；vt.去壳，脱落；炮击；vi.剥皮；炮轰
+kettle*n.(浇水用的)水壶；水壶，水锅
+ferry*n.渡船，渡口；v.渡运；(越海)空运
+shell*n.（贝、卵、坚果等的）壳；外壳；炮弹；（人的）表面性格；vt.去壳，脱落；炮击；vi.剥皮；炮轰
 ```
 
-其中英文单词和中文释义用`短横杠`进行分割：`短横杠`的前面是卡片的正面、`短横杠`的后面是卡片的反面。通过「纸记卡片 Paper MEMO」工具，可以生成在单张 A4 纸上进行排布的小卡片。工具生成 A4 大小的 pdf，用户可选择 A4 纸上的分割数量，目前可以分成 2、4、8、16、32 张。**将这份 pdf 进行双面打印后，沿着虚线裁剪，即可得到一张张有正反两面的闪记卡片**。下载的示例 pdf 文件如下所示（每张纸分为 8 张卡片）：
+其中英文单词和中文释义用`星号*`进行分割：`星号*`的前面是卡片的正面、`星号*`的后面是卡片的反面。通过「纸记卡片 Paper MEMO」工具，可以生成在单张 A4 纸上进行排布的小卡片。工具生成 A4 大小的 pdf，用户可选择 A4 纸上的分割数量，目前可以分成 2、4、8、16、32 张。**将这份 pdf 进行双面打印后，沿着虚线裁剪，即可得到一张张有正反两面的闪记卡片**。下载的示例 pdf 文件如下所示（每张纸分为 8 张卡片）：
 
 ![](https://xd.sh.cn/uploads/2020/04/ppmemo-2020042500.jpg)
 
