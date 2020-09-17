@@ -31,20 +31,17 @@ function Copyright() {
         </Link>
       </Typography>
       <Typography variant="body2" color="textSecondary" align="center">
-        <Link color="inherit" href="https://uniquelab.cn/ppmemo">
-          Paper MEMO 纸记卡片 v1.0.2
+        <Link color="inherit" href="https://xd.sh.cn/ppmemo">
+          react 网页应用「纸记卡片 Paper MEMO」 v1.0.3（2020.9）
         </Link>
       </Typography>
       <Typography variant="overline" color="textSecondary" align="center">
         {"Copyright © "}
-        <Link color="inherit" href="https://uniquelab.cn">
-          UNiQUElab.cn
+        <Link color="inherit" href="https://xd.sh.cn/ppmemo">
+          不淡定的实验室 xd.sh.cn
         </Link>
         {" 2016-"}
         {new Date().getFullYear()}{" "}
-        <Link color="inherit" href="http://beian.miit.gov.cn/">
-          沪ICP备14038257号-2
-        </Link>
       </Typography>
     </div>
   );
@@ -171,7 +168,7 @@ export default function Dashboard() {
             className={classes.title}
           >
             {/*这里是标题*/}
-            Paper MEMO
+            纸记卡片 Paper MEMO
           </Typography>
         </Toolbar>
       </AppBar>

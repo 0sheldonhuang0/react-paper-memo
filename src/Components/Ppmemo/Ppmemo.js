@@ -74,8 +74,8 @@ export default function Ppmemo() {
 
   return (
     <React.Fragment>
-      <ScrollToTop />
       <div className={classes.root}>
+        <ScrollToTop />
         <Stepbar activeStep={activeStep} steps={steps} />
         <Grid className={classes.fixedHeight280}>
           {getMainContent(activeStep)}
