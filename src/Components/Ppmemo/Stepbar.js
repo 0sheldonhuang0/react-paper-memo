@@ -16,7 +16,7 @@ export default function Stepbar(props) {
 
   return (
     <React.Fragment>
-      <Title>制作你的卡片集</Title>
+      <Title>制作你的单词卡片集</Title>
       <div className={classes.root}>
         <Stepper activeStep={props.activeStep} alternativeLabel>
           {props.steps.map((label) => (

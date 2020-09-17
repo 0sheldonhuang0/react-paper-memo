@@ -117,6 +117,7 @@ export default function Preview() {
   return (
     <React.Fragment>
       <div>
+      {CreatPdf(format.format)}
         <Container maxWidth="lg">
           <Typography variant="h5">如何进行打印？</Typography>
           <Typography variant="h6" align="left" className={classes.titleStyle}>
@@ -176,7 +177,6 @@ export default function Preview() {
             注意事项：使用手动进行双面打印时，您可以先小批量测试以确定打印的结果是否正确。
           </Typography>
         </Container>
-        {CreatPdf(format.format)}
       </div>
     </React.Fragment>
   );
